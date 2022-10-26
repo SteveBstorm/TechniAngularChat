@@ -1,0 +1,23 @@
+<div>
+  <p>Rejoindre groupe :
+    <button (click)="joinGroup('group1')">Groupe 1</button>
+    <button (click)="joinGroup('group2')">Groupe 2</button>
+  </p>
+</div>
+<p>Sender : <input [(ngModel)]="sender" /></p>
+<p>Message : <input [(ngModel)]="newMessage" /></p>
+<select [(ngModel)]="selectedGroup" aria-placeholder="Choisir groupe">
+  <option *ngFor="let g of groupList" [value]="g">
+    {{g}}
+  </option>
+</select>
+<button (click)="sendToGroup()">Envoyer</button>
+
+<div style="border : 1px black solid;">
+  <ul>
+    <li *ngFor="let m of messageList">
+      {{m.time | date : 'hh:mm'}} =>
+      <b>{{m.sender}}</b> : {{m.content}}
+    </li>
+  </ul>
+</div>
